@@ -6,9 +6,21 @@ import {
   TextInput,
   Button,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
-export default function courseInput({ visible }) {
+export default function courseInput({ visible, onAddButton, onCancelButton, onDeleteButton}) {
+  const [EnteredText, setEnteredText] = useState("");
+
+  const addCourseHandler = () => {
+    onAddButton(EnteredText);
+    setEnteredText("");
+  };
+
+  const deleteCourseHandler = () => {
+    onDeleteButton(EnteredText);
+    setEnteredText("");
+  };
+
   return (
     <Modal animationType="slide" visible={visible}>
       <View style={styles.centeredView}>
@@ -16,10 +28,31 @@ export default function courseInput({ visible }) {
           source={require("../assets/images/logo.png")}
           style={styles.Image}
         />
-        <TextInput style={styles.logo} placeholder="Enter Your ID" />
+        <TextInput
+          style={styles.logo}
+          placeholder="Enter Your ID"
+          value={EnteredText}
+          onChangeText={(text) => setEnteredText(text)}
+        />
         <View style={styles.modalView}>
-          <Button title="Add" color="green" style={styles.button} />
-          <Button title="Delete" color="red" style={styles.button} />
+          <Button
+            title="Add"
+            color="green"
+            style={styles.button}
+            onPress={addCourseHandler}
+          />
+          <Button
+            title="Delete"
+            color="red"
+            style={styles.button}
+            onPress={deleteCourseHandler}
+          />
+          <Button
+            title="Cancel"
+            color="black"
+            style={styles.button}
+            onPress={onCancelButton}
+          />
         </View>
       </View>
     </Modal>

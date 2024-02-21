@@ -8,14 +8,29 @@ export default function App() {
 
   const startModal = () => {
     setmodalVisible(true);
-    console.log("Modal started");
   };
+  const endModal = () => {
+    setmodalVisible(false);
+  };
+
+  const AddCourse = (courseTitle) => {
+    console.log(courseTitle);
+  };
+  const deleteCourse = (courseTitle) => {
+    console.log(courseTitle+" deleted");
+  };
+
   return (
     <>
       <StatusBar style="light" />
       <View style={styles.container}>
         <Button title="Add Course" color="red" onPress={startModal} />
-        <CourseInput visible={modalVisible} />
+        <CourseInput
+          visible={modalVisible}
+          onAddButton={AddCourse}
+          onCancelButton={endModal}
+          onDeleteButton={deleteCourse}
+        />
       </View>
     </>
   );
