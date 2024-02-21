@@ -8,6 +8,7 @@ export default function App() {
 
   const startModal = () => {
     setmodalVisible(true);
+    console.log("Modal started");
   };
   return (
     <>
