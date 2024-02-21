@@ -45,8 +45,8 @@ export default function App() {
           <FlatList
             data={course}
             renderItem={({item}) => (
-              <View>
-                <Text>{item.text}</Text>
+              <View style={styles.courseItem}>
+                <Text style={styles.courseText}>{item.text}</Text>
               </View>
             )}
           />
@@ -62,5 +62,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingTop: 50,
     paddingHorizontal: 30,
+  },
+  courseItem: {
+    padding: 10,
+    marginVertical: 10,
+    backgroundColor: "#f2f2f2",
+    borderColor: "black",
+    borderWidth: 1,
+  },
+  courseText: {
+    fontSize: 20,
+    textAlign: "center",
   },
 });
