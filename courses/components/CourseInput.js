@@ -16,7 +16,7 @@ export default function courseInput({ visible }) {
           source={require("../assets/images/logo.png")}
           style={styles.Image}
         />
-        <TextInput style={styles.logo} placeholder="Logo" />
+        <TextInput style={styles.logo} placeholder="Enter Your ID" />
         <View style={styles.modalView}>
           <Button title="Add" color="green" style={styles.button} />
           <Button title="Delete" color="red" style={styles.button} />
